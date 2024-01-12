@@ -1,0 +1,17 @@
+[font]
+normal = { family = "Fira Code", style = "Regular" }
+size = 10
+
+[window]
+# startup_mode = "Fullscreen"
+startup_mode = "Maximized"
+
+[scrolling]
+history = 30000
+
+[keyboard]
+bindings = [
+{ key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
+{ key = "L", mods = "Control|Shift", chars = "l" },
+# { key = "T", mods = "Control|Shift", action = "CreateNewTab" }
+]
