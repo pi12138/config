@@ -3,8 +3,8 @@ normal = { family = "Fira Code", style = "Regular" }
 size = 10
 
 [window]
-# startup_mode = "Fullscreen"
-startup_mode = "Maximized"
+startup_mode = "Fullscreen"
+# startup_mode = "Maximized"
 
 [scrolling]
 history = 30000
@@ -14,4 +14,7 @@ bindings = [
 { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
 { key = "L", mods = "Control|Shift", chars = "l" },
 # { key = "T", mods = "Control|Shift", action = "CreateNewTab" }
+{ key = "N", mods = "Control|Alt", action = "SpawnNewInstance" },
+{ key = "F11", action = "ToggleFullscreen" },
+{ key = "Q", mods = "Control", action = "Quit" }
 ]
