@@ -1,2 +1,2 @@
 # config
-software config 
+software config
