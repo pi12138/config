@@ -66,6 +66,3 @@ F12 = "hover"
 "S-F12" = "goto_reference"
 "F2" = "rename_symbol"
 "C-s" = ["normal_mode", ":w"]
-
-
-

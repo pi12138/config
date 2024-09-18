@@ -39,7 +39,7 @@ if  rawget(package.loaded, "plugins-config.telescope") then
     vim.keymap.set("n", "<C-p>", teleBuilt.find_files, {})
     vim.keymap.set('v', '<C-f>', teleBuilt.grep_string, opt)
     -- open file_browser with the path of the current buffer
-    vim.keymap.set("n", "<C-b>", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
+    vim.keymap.set("n", "<C-b>", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", MergeTables(opt, {desc="file browser"}))
 
     -- lsp picker
     local mode = "n"
@@ -52,7 +52,8 @@ if  rawget(package.loaded, "plugins-config.telescope") then
 
     -- 全局搜索, 需要 ripgrep  支持
     if BinaryExists('rg') then
-        vim.keymap.set("n", "<C-f>", teleBuilt.live_grep, opt)
+        -- vim.keymap.set("n", "<C-f>", teleBuilt.live_grep, opt)
+        vim.keymap.set("n", "<C-f>", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", opt)
     else
         DebugNotify("rg  不存在,不设置快捷键  Ctrl +  f")
     end
@@ -116,7 +117,7 @@ function SetLSPKeyMap(bufnr)
         vim.keymap.set(mode, '<F48>', vim.lsp.buf.declaration, opts) -- <F48> ctrl + shift + F12 转到盛名
         vim.keymap.set(mode, '<F2>', vim.lsp.buf.rename, opts)
     end
-
+    vim.keymap.del('n', 'K', opts)
 end
 
 -- which-key 管理快捷键
@@ -126,7 +127,31 @@ if  not status  then
 end
 
 wk.add({
-    {"<leader>qa", "<cmd>qa<cr>", desc="Quit ALL"},
+    -- leader
+    {"<leader>qa", "<cmd>qa<cr>", desc="退出"},
+    {"<leader>Q", "<cmd>qa<cr>", desc="退出"},
+    {"<leader>qb", "<cmd>bd<cr>", desc="关闭当前 buffer"},
+    {"<leader>?", function ()
+        wk.show()
+    end, desc="展示所有的快捷键"},
+
+    -- Ctrl
+    {"<C-j>", "<esc>o", desc="Into next line", mode='i'},
+    {"<C-c>", "<esc>yya", desc="Copy", mode="i"},
+    {"<C-x>", "<esc>dda", desc="Cut", mode="i"},
+    {"<C-v>", "<esc>pa", desc="Paste", mode="i"},
 })
 
-
+local gsstatus, gitsigns = pcall(require, "gitsigns")
+if not gsstatus then
+    DebugNotify("gitsigns not install.")
+else
+    wk.add({
+        {"<leader>gr", function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end, desc="丢弃更改", mode="v"},
+        {"<leader>gp", gitsigns.preview_hunk_inline, desc="预览当前块更改"},
+        {"<leader>gi", function ()
+            gitsigns.blame_line{full=true}
+        end, desc = "显示当前行的修改信息"},
+        {"<leader>gd", gitsigns.diffthis, desc="显示和上个版本的diff"},
+    })
+end

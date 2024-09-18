@@ -20,33 +20,24 @@ def run_command(command):
         return e.stdout, e.stderr, e.returncode
 
 class Config:
-    def __init__(self, name, src_dir, dst_dir):
-        self.name = name
+    def __init__(self, src_dir, dst_dir):
         self.src_dir = src_dir
         self.dst_dir = dst_dir
 
 
 CUR_DIR = os.path.abspath('.')
 ZELLIJ = Config(
-    "zellij",
     os.path.join(CUR_DIR, "zellij"),
     os.path.join(os.path.expanduser("~"), ".config/zellij")
 )
 HELIX = Config(
-    "helix",
     os.path.join(CUR_DIR, "helix"),
     os.path.join(os.path.expanduser("~"), ".config/helix")
 )
 ALACRITTY = Config(
-    "alacritty",
     os.path.join(CUR_DIR, "alacritty"),
     os.path.join(os.path.expanduser("~"), ".config/alacritty")
 )
-NEOVIM = Config(
-        "nvim",
-        os.path.join(CUR_DIR, "nvim"),
-        os.path.join(os.path.expanduser("~"), ".config/nvim")
-        )
 
 
 class LinkFile:
@@ -61,7 +52,7 @@ class LinkFile:
         return self.__str__()
     
     def exec(self):
-        stdout, stderr, returncode = run_command(["ln", "-sf", self.src, "-T", self.dst])
+        stdout, stderr, returncode = run_command(["ln", "-s", self.src, self.dst])
         if returncode != 0:
             print(stdout)
             print(stderr)
@@ -70,13 +61,10 @@ NUMBER_TO_CFG = {
     1: ZELLIJ,
     2: HELIX,
     3: ALACRITTY,
-    4: NEOVIM,
 }
 
 def main():
-    print("请输入要建立软连接的应用:")
-    for k, v in NUMBER_TO_CFG.items():
-        print(f"\t{k}.{v.name}")
+    print("请输入要建立软连接的应用:\n\t1.zellij\n\t2.helix\n\t3.alacritty\n")
     numbers = input("输入编号(多个编号用逗号分割): ")
 
     list_config: List[Config] = []
