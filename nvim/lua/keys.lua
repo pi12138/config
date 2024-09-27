@@ -23,7 +23,7 @@ vim.keymap.set("i", "<C-w>", "<ESC>:w<CR>:bd<CR>", opt)
 vim.keymap.set("i", "<A-Left>", "<ESC>:BufferLineCyclePrev<CR>", opt)
 vim.keymap.set("i", "<A-Right>", "<ESC>:BufferLineCycleNext<CR>", opt)
 vim.keymap.set("n", "<C-s>", ":w<CR>", opt)
--- vim.keymap.set("n", "<C-q>", ":q<CR>", opt)
+vim.keymap.set("n", "<C-q>", ":w<CR>:bd<CR>", opt)
 vim.keymap.set("n", "<A-Left>", ":BufferLineCyclePrev<CR>", opt)
 vim.keymap.set("n", "<A-Right>", ":BufferLineCycleNext<CR>", opt)
 
