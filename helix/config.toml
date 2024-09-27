@@ -8,6 +8,11 @@ bufferline = "always"
 # bufferline = "multiple"
 true-color = true
 
+[editor.auto-save]
+after-delay.enable = true
+focus-lost = true
+after-delay.timeout = 1000
+
 [editor.statusline]
 separator = ">"
 mode.normal = "NORMAL"
