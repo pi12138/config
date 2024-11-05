@@ -33,7 +33,10 @@ display-messages = true
 # display-inlay-hints = true 
 
 [editor.whitespace]
-render = "all"
+# render = "all"
+
+[editor.indent-guides]
+render = true
 
 [keys.normal]
 "A-S-down" = "goto_definition"
@@ -71,3 +74,6 @@ F12 = "hover"
 "S-F12" = "goto_reference"
 "F2" = "rename_symbol"
 "C-s" = ["normal_mode", ":w"]
+
+[editor.search]
+smart-case = false
