@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Tabby
+Comment=Terminal for Developers
+Exec=/opt/applications/tabby-1.0.219-linux-x64.AppImage
+Icon=/opt/applications/tabby.png
+Terminal=false
+Type=Application
+Categories=Utility;System;TerminalEmulator;
+StartupWMClass=Tabby

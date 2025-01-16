@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=WeChat
+Comment=WeChat for Linux
+Exec=/opt/applications/WeChatLinux_x86_64.AppImage
+Icon=/opt/applications/wechat.svg
+Terminal=false
+Type=Application
+Categories=Network;InstantMessaging;
+StartupWMClass=WeChat
