@@ -29,7 +29,7 @@ block-comment-tokens = { start = "/*", end = "*/" }
 language-servers = [ "gopls", "golangci-lint-lsp" ]
 # TODO: gopls needs utf-8 offsets?
 indent = { tab-width = 4, unit = "\t" }
-formatter = { command = "gofmt" , args = ["--stdin"] }
+# formatter = { command = "gofmt" , args = ["--stdin"] }
 
 [[grammar]]
 name = "go"
