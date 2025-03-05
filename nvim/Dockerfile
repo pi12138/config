@@ -2,7 +2,7 @@ FROM ubuntu:noble
 WORKDIR /root
 USER root
 COPY . /tmp/nvim
-RUN apt update && apt install -y git python3-pip npm luarocks ripgrep fd-find python3-neovim
+RUN apt-get update && apt-get install -y git python3-pip npm luarocks ripgrep fd-find python3-neovim curl
 RUN npm install -g neovim
 RUN chmod +x /tmp/nvim/tree-sitter-linux-x64 \
     && mkdir -p /root/.local/share/nvim/bin \
@@ -11,7 +11,7 @@ RUN chmod +x /tmp/nvim/tree-sitter-linux-x64 \
     && mv /tmp/nvim/nvim-linux-x86_64 /opt/ \
     && ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/bin/nvim \
     && mkdir -p .config && mv /tmp/nvim .config/nvim \
-    && rm -rf /tmp/nvim && apt clean
-ENV LANG=zh_CN.UTF-8 LC_ALL=zh_CN.UTF-8 LC_CTYPE=zh_CN.UTF-8
+    && rm -rf /tmp/nvim && apt-get clean
+ENV LANG=C.utf8 LC_ALL=C.utf8 LC_CTYPE=C.utf8 TZ=Asia/Shanghai
 CMD ["sleep", "infinity"]
 
