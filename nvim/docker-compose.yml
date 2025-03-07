@@ -1,0 +1,10 @@
+services:
+  nvim:
+    image: neovim:0.0.4
+    container_name: nvim
+    volumes:
+      - $HOME/Projects:/projects
+    working_dir: /projects
+    network_mode: "host"
+    cpus: 1
+    mem_limit: 1g
