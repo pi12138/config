@@ -1,9 +1,10 @@
 services:
   nvim:
-    image: neovim:0.0.4
+    image: neovim:0.0.6
     container_name: nvim
     volumes:
-      - $HOME/Projects:/projects
+      - /opt/ContainerProjects:/projects
+      - $HOME/.ssh:/home/nvim/.ssh
     working_dir: /projects
     network_mode: "host"
     cpus: 1
