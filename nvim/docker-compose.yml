@@ -1,6 +1,6 @@
 services:
   nvim:
-    image: neovim:0.0.6
+    image: neovim:0.0.8
     container_name: nvim
     volumes:
       - /opt/ContainerProjects:/projects
