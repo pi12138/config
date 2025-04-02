@@ -1,7 +1,7 @@
 services:
-  nvim:
-    image: neovim:0.0.8
-    container_name: nvim
+  nvim-go:
+    image: neovim-go:0.0.2
+    container_name: nvim-go
     volumes:
       - /opt/ContainerProjects:/projects
       - $HOME/.ssh:/home/nvim/.ssh
