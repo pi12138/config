@@ -26,5 +26,10 @@ require("plugins-config.nvim-treesitter")
 require("plugins-config.bufferline")
 require("plugins-config.lualine")
 require("plugins-config.cmp")
+
+-- lsp config 
 require("plugins-config.mason")
+require("plugins-config.lsp.lua")
+require("plugins-config.lsp.go")
+require("plugins-config.lsp.python")
 require('themes')
