@@ -20,11 +20,16 @@ if not status then
     return
 end
 
-masonLsp.setup({
-    automatic_installation = true,
-    ensure_installed = {
-        "gopls",
-        "lua_ls",
-        "pyright",
-    },
-})
+-- 默认不安装任何lsp
+-- 需要的话手动执行 LspInstall
+masonLsp.setup()
+
+
+-- masonLsp.setup({
+--     automatic_installation = true,
+--     ensure_installed = {
+--         "gopls",
+--         "lua_ls",
+--         "pyright",
+--     },
+-- })
