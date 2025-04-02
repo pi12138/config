@@ -1,6 +1,6 @@
 return {
 
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
-  "neovim/nvim-lspconfig",
+  {"williamboman/mason.nvim", version = "*"},
+  {"williamboman/mason-lspconfig.nvim",   version = '*'},
+  {"neovim/nvim-lspconfig",   version = '*'},
 }
