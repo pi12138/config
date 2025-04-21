@@ -14,7 +14,7 @@ rangeVariableTypes = true
 command = "golangci-lint-langserver"
 
 [language-server.golangci-lint-lsp.config]
-command = ["golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1"]
+command = ["golangci-lint", "run", "--output.json.path=stdout", "--show-stats=false", "--issues-exit-code=1"]
 
 
 [[language]]
@@ -29,7 +29,7 @@ block-comment-tokens = { start = "/*", end = "*/" }
 language-servers = [ "gopls", "golangci-lint-lsp" ]
 # TODO: gopls needs utf-8 offsets?
 indent = { tab-width = 4, unit = "\t" }
-# formatter = { command = "gofmt" , args = ["--stdin"] }
+formatter = { command = "goimports" }
 
 [[grammar]]
 name = "go"
