@@ -14,13 +14,13 @@ focus-lost = true
 after-delay.timeout = 1000
 
 [editor.statusline]
-separator = ">"
+separator = "#"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
-left = ["mode", "read-only-indicator", "file-modification-indicator", "separator"]
+left = ["mode", "file-modification-indicator", "spacer", "separator"]
 center = ["spinner", "version-control", "file-name", "diagnostics", "separator"]
-right = ["selections", "register", "position", "file-encoding", "file-type"]
+right = ["selections", "register", "position", "file-encoding", "file-type", "read-only-indicator"]
 # default
 # right = ["diagnostics", "selections", "register", "position", "file-encoding"]
 
