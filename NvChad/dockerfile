@@ -1,0 +1,18 @@
+FROM alpine:latest
+
+RUN sed -i 's#https\?://dl-cdn.alpinelinux.org/alpine#https://mirrors.tuna.tsinghua.edu.cn/alpine#g' /etc/apk/repositories \
+    && apk update \
+    && apk add --no-cache git nodejs neovim ripgrep build-base wget
+
+# 创建用户组 nvim，GID 1000
+RUN addgroup -g 1000 nvim && \
+    adduser -D -u 1000 -G nvim nvim
+
+WORKDIR /home/nvim
+
+USER nvim
+
+RUN git clone https://github.com/NvChad/starter ~/.config/nvim
+
+CMD ["nvim"]
+
