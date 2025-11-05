@@ -1,7 +1,6 @@
 [font]
-normal = { family = "Fira Code", style = "Retina" }
-# normal = { family = "FiraCode Nerd Font" }
-size = 10
+normal = { family = "Fira Code"}
+size = 11
 
 [window]
 # startup_mode = "Fullscreen"
@@ -28,5 +27,7 @@ bindings = [
 # CreateNewWindow 和 SpawnNewInstance 是有区别的
 # 前者的窗口属于同一个进程，后者是不同的进程
 
-# [terminal]
+[terminal]
 # osc52 = "CopyPaste"
+# for window
+shell = { program = "wsl.exe", args = ["-d", "debian"]}
