@@ -1,10 +1,12 @@
 [font]
-normal = { family = "Fira Code"}
-size = 11
+normal = { family = "FiraCode Nerd Font", style = "Retina" }
+size = 12
 
 [window]
 # startup_mode = "Fullscreen"
 startup_mode = "Maximized"
+padding = { x = 5, y = 1 }
+opacity = 0.9
 
 # 去除标题栏以及标题栏上的按钮(隐藏窗口按钮，最大化按钮，删除按钮)
 decorations = "None" 
@@ -17,11 +19,8 @@ history = 30000
 [keyboard]
 bindings = [
 { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
-# { key = "L", mods = "Control|Shift", chars = "l" },
-# { key = "T", mods = "Control|Shift", action = "CreateNewTab" }
 { key = "N", mods = "Control|Alt", action = "SpawnNewInstance" },
 { key = "F11", action = "ToggleFullscreen" },
-# { key = "W", mods = "Control|Shift", action = "Quit" }
 ]
 
 # CreateNewWindow 和 SpawnNewInstance 是有区别的
@@ -30,4 +29,4 @@ bindings = [
 [terminal]
 # osc52 = "CopyPaste"
 # for window
-shell = { program = "wsl.exe", args = ["-d", "debian"]}
+shell = { program = "wsl.exe", args = ["-d", "debain"]}
